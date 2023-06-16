@@ -6,13 +6,11 @@ import WatchList from "./Components/WatchList";
 import axios from "axios";
 
 function App() {
-  console.log(process.env.REACT_APP_API_KEY)
-
   const [movieList, setMovieList] = useState([]);
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
 
-  const API = `https://api.themoviedb.org/3/movie/popular?api_key=08367dc1e5d6e3e9a5e8f8eab282eb9a&language=en-US&page=${page}`;
+  const API = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
 
   const getData = () => {
     axios.get(API).then((res) => {
